@@ -1,0 +1,77 @@
+:root{
+	--fuenteTitle: 'Ubuntu', system-ui;
+	--fuenteText: 'Montserrat', system-ui;
+	--verde: #4ec4ae;
+	--bgP: #eeeef0;
+	--bgS: #f5f5f5;
+	--colorText: #aeaeb0;
+	--colorTitle: #43474a;
+
+	--btn: {
+		background: var(--verde);
+		font-family: var(--fuenteText);
+		color: white;
+		padding: 1em 2em;
+		text-decoration: none;
+		border-radius: 5rem;
+		text-transform: uppercase;
+	};
+}
+body{
+	margin: 0;
+	padding: 0;
+	font-family: 'Ubuntu';
+	font-family: 'Montserrat';
+
+}
+.Hero{
+	background: url('../img/bg.jpg') no-repeat center center;
+	background-size: cover;
+	& .contenedor{
+		background: color(black a(50%));
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 8em 9em;
+		text-align: center;
+		& .header{
+			& .navbar{
+				& .menu{
+					margin: 0;
+					display: flex;
+					& .item{
+						padding: 1em;
+						list-style: none;
+						& a{
+							color: white;
+							font-family: var(--fuenteText);
+							text-transform: uppercase;
+							text-decoration: none;
+						}
+					}
+				}
+			}
+		}
+		& .title{
+			font-family: var(--fuenteTitle);
+			color: white;
+			font-size: 4rem;
+			text-transform: uppercase;
+			margin-bottom: 0;
+		}
+		& .subtitle{
+			font-family: var(--fuenteText);
+			color: white;
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			font-weight: 500;
+			margin-bottom: 3em;
+		}
+		& .btn{
+			@apply --btn;
+			font-size: 1.2rem;
+			padding: 1em 3em;
+		}
+	}
+}
