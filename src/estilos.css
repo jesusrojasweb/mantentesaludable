@@ -20,6 +20,9 @@
 		grid-template-columns: repeat(2, 1fr);
 		grid-gap: 5em;
 		width: 80%;
+		@media (--mobile){
+			grid-template-columns: 1fr;
+		}
 	};
 	--contenedor: {
 		display: flex;
@@ -41,6 +44,8 @@
 		padding-bottom: 3em;
 	};
 }
+@custom-media --mobile (width <= 500px );
+@custom-media --tablet (width <= 780px );
 body{
 	margin: 0;
 	padding: 0;
@@ -59,11 +64,23 @@ body{
 		justify-content: center;
 		padding: 8em 9em;
 		text-align: center;
+		@media (--tablet){
+			padding: 8em 5em;
+		}
+		@media (--mobile){
+			padding: 4em 2em 8em;
+		}
 		& .header{
+			width: 100%;
 			& .navbar{
+				position: relative;
+				width: 100%;
 				& .menu{
 					margin: 0;
 					display: flex;
+					@media (--mobile){
+						display: none;
+					}
 					& .item{
 						padding: 1em;
 						list-style: none;
@@ -75,6 +92,18 @@ body{
 						}
 					}
 				}
+				& .button{
+					display: none;
+					@media (--mobile){
+						display: block;
+						color: white;
+						background: none;
+						border: none;
+						font-size: 3rem;
+						position: absolute;
+						right: 0;
+					}
+				}
 			}
 		}
 		& .title{
@@ -83,6 +112,13 @@ body{
 			font-size: 4rem;
 			text-transform: uppercase;
 			margin-bottom: 0;
+			@media (--tablet){
+				font-size: 3rem;
+			}
+			@media (--mobile){
+				font-size: 2.5rem;
+				margin-top: 2em;
+			}
 		}
 		& .subtitle{
 			font-family: var(--fuenteText);
@@ -91,6 +127,33 @@ body{
 			text-transform: uppercase;
 			font-weight: 500;
 			margin-bottom: 3em;
+			position: relative;
+			&:before{
+				content: '';
+				position: absolute;
+				width: 15%;
+				height: 2px;
+				top: 50%;
+				left: -5em;
+				background: white;
+			}
+			&:after{
+				content: '';
+				position: absolute;
+				width: 15%;
+				height: 2px;
+				top: 50%;
+				right: -5em;
+				background: white;
+			}
+			@media (--tablet){
+				&:before,&:after{
+					display: none;
+				}
+			}
+			@media (--tablet){
+				font-size: 1.5rem;
+			}
 		}
 		& .btn{
 			@apply --btn;
@@ -152,6 +215,9 @@ body{
 .Destacado-a{
 	padding: 5em 8em 8em;
 	background: var(--bgP);
+	@media (--mobile){
+		padding: 5em 2em 8em;
+	}
 	& .title{
 		@apply --title;
 		font-size: 2rem;
@@ -193,5 +259,61 @@ body{
 				text-decoration: none;
 			}
 		}
+	}
+}
+.Recomendaciones{
+	@apply --contenedor;
+	background: var(--bgP);
+	padding: 5em 0 10em;
+	& .contenedor{
+		@apply --grid;
+		& .item{
+			& .title{
+				@apply --title;
+				font-size: 1.5rem;
+				& span{
+					font-size: 2rem;
+					color: var(--colorText);
+				}
+			}
+			& .descripcion{
+				@apply --text;
+			}
+			& .btn{
+				@apply --btn;
+			}
+		}
+	}
+}
+.Destacado-b{
+	@apply --contenedor;
+	background: var(--bgS);
+	& .contenedor{
+		@apply --grid;
+		& .item{
+			& .img{
+				width: 100%;
+			}
+			& .title{
+				@apply --title;
+				font-size: 1.5rem;
+			}
+			& .meta{
+				@apply --text;
+			}
+			& .btn{
+				@apply --btn;
+				background: var(--colorText);
+			}
+		}
+	}
+}
+.footer{
+	background: var(--verde);
+	padding: 3em 2em;
+	& .copy{
+		margin: 0;
+		color: white;
+		font-family: var(--fuenteText);
 	}
 }
