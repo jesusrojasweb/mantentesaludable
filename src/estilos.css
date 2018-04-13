@@ -14,7 +14,31 @@
 		padding: 1em 2em;
 		text-decoration: none;
 		border-radius: 5rem;
+	};
+	--grid: {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 5em;
+		width: 80%;
+	};
+	--contenedor: {
+		display: flex;
+		justify-content: center;
+		padding: 5em 0;
+	};
+	--title: {
+		color: var(--colorTitle);
+		font-family: var(--fuenteTitle);
 		text-transform: uppercase;
+		border-bottom: 1px solid var(--colorText);
+		font-size: 1.3rem;
+		font-weight: 500;
+		padding-bottom: 1em;
+	};
+	--text: {
+		color: var(--colorText);
+		font-family: var(--fuenteText);
+		padding-bottom: 3em;
 	};
 }
 body{
@@ -72,6 +96,56 @@ body{
 			@apply --btn;
 			font-size: 1.2rem;
 			padding: 1em 3em;
+			text-transform: uppercase;
+		}
+	}
+}
+.Servicios{
+	@apply --contenedor;
+	background: var(--bgP);
+	& .contenedor{
+		@apply --grid;
+		grid-template-columns: repeat(3, 1fr);
+		& .item{
+			text-align: center;
+			& .fa, & .far{
+				font-size: 3rem;
+				color: var(--verde);
+			}
+			& .title{
+				@apply --title;
+			}
+			& .descripcion{
+				@apply --text;
+			}
+		}
+	}
+}
+.Post-a{
+	@apply --contenedor;
+	background: var(--bgS);
+	& .contenedor{
+		@apply --grid;
+		grid-gap: 8em;
+		& .item{
+			& .header{
+				height: 250px;
+				overflow: hidden;
+				& .img{
+					width: 100%;
+				}
+			}
+			& .body{
+				& .title{
+					@apply --title;
+				}
+				& .meta{
+					@apply --text;
+				}
+				& .btn{
+					@apply --btn;
+				}
+			}
 		}
 	}
 }
