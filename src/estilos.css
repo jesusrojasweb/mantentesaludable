@@ -149,3 +149,49 @@ body{
 		}
 	}
 }
+.Destacado-a{
+	padding: 5em 8em 8em;
+	background: var(--bgP);
+	& .title{
+		@apply --title;
+		font-size: 2rem;
+		& span{
+			color: var(--colorText);
+			font-size: 2.5rem;
+		}
+	}
+	& .meta{
+		@apply --text;
+	}
+	& .btn{
+		@apply --btn;
+		background: var(--colorText);
+	}
+}
+.Post-b{
+	@apply --contenedor;
+	background: var(--bgS);
+	& .contenedor{
+		@apply --grid;
+		grid-template-columns: repeat(3, 1fr);
+		& .item{
+			& .header{
+				height: 200px;
+				overflow: hidden;
+				& .img{
+					width: 100%;
+				}
+			}
+			& .title{
+				@apply --title;
+			}
+			& .meta{
+				@apply --text;
+			}
+			& .btn{
+				color: var(--verde);
+				text-decoration: none;
+			}
+		}
+	}
+}
